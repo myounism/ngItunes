@@ -1,0 +1,61 @@
+   
+<!-- <img src="assets/img/no-image.jpg"> -->
+
+  <form class="form-inline" >
+    <div class="form-group">
+      <input type="search"
+             class="form-control"
+             placeholder="Enter search string"
+             name="currentTerm"
+             [(ngModel)] = "currentTerm"
+             #search> 
+    </div>
+    &nbsp;
+    <button class="btn btn-primary"
+            (click)="onSearch(search.value)" > 
+            Search
+    </button>
+    &nbsp;
+    <button *ngIf="hasPreviousData() && (records.length==0)" (click)="getPreviousData()" class="btn btn-success">Previous Search Results</button>    
+  </form>
+  
+  <!-- <a href="http://localhost:4200/#/search/hi#routing-strategies">Go there</a> -->
+  
+  <div class="text-center">
+    <p class="lead" *ngIf="loading">Loading...</p>
+  </div>
+
+  <!--   <ul class="list-group">
+    <li class="list-group-item"
+        *ngFor="let track of records">
+      <img src="{{track.thumbnail}}">
+      <a target="_blank"
+         href="{{track.link}}">{{ track.name }}
+      </a>
+    </li>
+  </ul> -->
+
+ <div *ngIf="recordsCount == 0">
+   <h2 style="color:red">Sorry, No results found!!</h2>
+ </div> 
+<div *ngIf="recordsCount" class="head"> 
+  Total Songs: <span class="count">({{recordsCount}})</span>
+</div>
+  <div class="list-group">
+    <!-- <a [routerLink]="['artist', track.artistId]"  -->
+    <!-- this just appends to the current url (relative to current path)-->
+    <!-- ex: http://localhost:4200/#/search/ji/artist/300117743 -->
+ 
+    <!-- this is relative url from root (relative to root path) -->
+    <!--ex: http://localhost:4200/#/artist/266838970 -->
+    <a [routerLink]="['/artist', track.artistId]" 
+       class="list-group-item list-group-item-action"
+       *ngFor="let track of records">
+      <img src="{{track.thumbnail ? track.thumbnail : 'assets/img/no-image.jpg' }}">
+      {{ track.name  ? track.name : "No info available" }} <span class="text-muted">by</span> {{ track.artist ? track.artist : "No info available"  }}
+    </a>
+  </div>
+
+
+
+  <!-- <a name="routing-strategies">I m here</a> -->

@@ -1,0 +1,19 @@
+<div class="text-center">
+    <p class="lead" *ngIf="loading">Loading...</p>
+  </div>
+  <div *ngIf="albumsCount == 0">
+      <h2 style="color:red">Sorry, No results found!!</h2>
+    </div> 
+   <div *ngIf="albumsCount" class="head"> 
+     Total Albums: <span class="count">({{albumsCount}})</span>
+   </div>
+
+<ul class="list-group">
+    <li class="list-group-item"
+        *ngFor="let album of albums">
+      <img src="{{album.artworkUrl100 ? album.artworkUrl100 :'../../assets/img/no-image.jpg'}}" width="100" height="100">
+      <a target="_blank"
+         href="{{album.collectionViewUrl}}">{{ album.collectionName ? album.collectionName : "No info available"  }}
+      </a>
+    </li>
+  </ul>

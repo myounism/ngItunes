@@ -1,0 +1,25 @@
+
+a{
+    text-decoration: none; 
+}
+.active a{
+    color:darkblue !important; 
+    font-weight: bolder !important;   
+    background: #eaedf0
+}
+a {
+    cursor: pointer;
+    color: #fff;
+    font-weight: bold;
+}
+.white{
+    color: #fff;
+    font-weight: bold;
+}
+.bk{
+    background: lightslategray;
+    padding: 20px;
+}
+h1, h4{
+    color:white;
+}

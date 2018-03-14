@@ -1,0 +1,31 @@
+<!-- <img src="../assets/img/no-image.jpg">  -->
+
+<div class="bk">
+    
+    <h4 style="color:#fff">Artist: <span style="color:#dcfaddf8">{{artist?.artistName}}</span> <span style="color:#c5f2f6">{{artist?.primaryGenreName}}</span></h4>
+    <hr />
+    <span [routerLinkActive]="['btn','btn-success']" style="padding-left:10px">
+      <!-- <a [routerLink]="['tracks']">Tracks</a> | -->
+      <!-- A more explicit way of saying you want to route relative to the current URL is to prepend it with ./  -->
+      <!-- both above and below links work same and perfectly, i.e; direct to same path  -->
+      <!-- But below one is much explicit i.e; recommnded -->
+      <a [routerLink]="['./tracks']">Tracks</a> 
+    </span>
+    | 
+    <!-- &nbsp;  | &nbsp; -->
+    <span [routerLinkActive]="['btn','btn-success']">
+        <!-- Pre-pending with ./ clearly expresses our intent that the path is relative so lets use this syntax instead. -->
+        <a [routerLink]="['./albums']">Albums</a>
+    </span>
+    |
+    <span [routerLinkActive]="['btn','btn-success']">
+            <!-- Pre-pending with ./ clearly expresses our intent that the path is relative so lets use this syntax instead. -->
+            <a [routerLink]="['./videos']">Videos</a>
+    </span>
+    
+    <!-- Now we have two router-outlets one nested inside another Angular figures out 
+    which outlet to insert the component in by the nesting level of the route and the router outlet. -->
+    
+    <router-outlet></router-outlet>
+
+</div>

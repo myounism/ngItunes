@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+.head{
+    text-align:center;
+    color:darkblue;
+    background: lightgreen;
+    font-size: 17pt; 
+}
+.count{
+    color: red;
+    font-weight: bolder;
+    font-size: 20pt; 
+}
